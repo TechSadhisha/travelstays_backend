@@ -3,11 +3,15 @@ const express = require('express');
 const cors = require('cors');
 const { sequelize } = require('./models');
 const inquiryRouter = require('./routes/inquiry');
+const uploadRouter = require('./routes/uploadRoutes');
+const propertiesRouter = require('./routes/properties');
 
 const app = express();
 app.use(cors()); // Adjust origin as needed
 app.use(express.json());
 app.use('/api', inquiryRouter);
+app.use('/api/upload', uploadRouter);
+app.use('/api/properties', propertiesRouter);
 
 const PORT = process.env.PORT || 3001;
 

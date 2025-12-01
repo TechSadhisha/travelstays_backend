@@ -1,5 +1,6 @@
 const { Sequelize } = require('sequelize');
 const InquiryModel = require('./inquiry');
+const PropertyModel = require('./property');
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -13,5 +14,6 @@ const sequelize = new Sequelize(
 );
 
 const Inquiry = InquiryModel(sequelize);
+const Property = PropertyModel(sequelize);
 
-module.exports = { sequelize, Inquiry };
+module.exports = { sequelize, Inquiry, Property };
